@@ -3,16 +3,16 @@ import React from "react";
 type ButtonProps = {
     onClick: () => void
     title: string
-    count: number
+    value: number
     disabled: number
 }
 
-export function Button(props: ButtonProps) {
+export function SetTimerButton(props: ButtonProps) {
     return (
         <div>
             <div className="button">
                 <button onClick={props.onClick}
-                        disabled={props.count === props.disabled}
+                        disabled={props.value === props.disabled}
                 >{props.title}</button>
             </div>
         </div>

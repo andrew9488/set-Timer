@@ -1,26 +1,39 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Scoreboard} from "./Scoreboard";
-import {Buttons} from "./Buttons";
+import { SetTimer } from './SetTimer/SetTimer';
+import {Timer} from "./Timer/Timer";
+
 
 function App() {
 
     let [count, setCount] = useState<number>(0)
+    let [value, setValue] = useState<number>(0)
+
+    function install(){
+        setValue(value)
+    }
 
     function increase() {
         setCount(count + 1);
     }
+
     function reset() {
         setCount(0);
     }
 
     return (
         <div className="App">
-            <Scoreboard count={count}/>
-            <Buttons increase={increase}
-                     reset={reset}
-                     count={count}
-            />
+            <div className="setTimer">
+                <SetTimer value={value}
+                       install={install}
+                />
+            </div>
+            <div className="timer">
+                <Timer count={count}
+                       increase={increase}
+                       reset={reset}
+                />
+            </div>
         </div>
     );
 }

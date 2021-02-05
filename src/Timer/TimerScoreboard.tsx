@@ -1,10 +1,10 @@
 import React from "react";
 
-type ScoreboardProps = {
+type TimerScoreboardProps = {
     count: number
 }
 
-export function Scoreboard(props: ScoreboardProps) {
+export function TimerScoreboard(props: TimerScoreboardProps) {
 
     const countClass = props.count === 5 ? "red" : ""
 
