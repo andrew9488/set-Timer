@@ -1,20 +1,22 @@
 import React from "react";
 
 type ButtonProps = {
-    onClick: () => void
     title: string
-    value: number
-    disabled: number
+    install: ()=> void
+    value?: string
 }
 
 export function SetTimerButton(props: ButtonProps) {
+
+    const onClick = () => {props.install()}
+
     return (
         <div>
             <div className="button">
-                <button onClick={props.onClick}
-                        disabled={props.value === props.disabled}
+                <button onClick={onClick}
                 >{props.title}</button>
             </div>
         </div>
     );
 }
+

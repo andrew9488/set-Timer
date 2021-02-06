@@ -23,7 +23,7 @@
     color: darkred;
 }
 
-.setTimerValue .buttons {
+.setTimerValue .button {
     display: flex;
     border: 2px solid orange;
     padding: 10px;
@@ -35,7 +35,7 @@
     padding-left: 140px;
 }
 
-.setTimerValue .buttons button {
+.setTimerValue .button button {
     width: 70px;
     height: 50px;
     text-align: center;

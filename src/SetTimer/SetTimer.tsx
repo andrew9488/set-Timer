@@ -1,19 +1,31 @@
 import {SetTimerScoreboard} from "./SetTimerScoreboard";
-import {SetTimerButtons} from "./SetTimerButtons";
+import {SetTimerButton} from "./SetTimerButton";
 import React from "react";
 import './SetTimer.css';
 
 type SetTimerPropsType = {
-    value: number
+    value: string
+    maxValue: string
     install: () => void
+    updateValue: (value: string) => void
+    updateMaxValue: (value: string) => void
+
 }
 
 export function SetTimer(props: SetTimerPropsType) {
     return (
         <div className="setTimerValue">
-            <SetTimerScoreboard value={props.value}/>
-            <SetTimerButtons install={props.install}
-                             value={props.value}/>
+            <SetTimerScoreboard
+                value={props.value}
+                maxValue={props.maxValue}
+                updateValue={props.updateValue}
+                updateMaxValue={props.updateMaxValue}
+            />
+            <SetTimerButton
+                title="set"
+                value={props.value}
+                install={props.install}
+            />
         </div>
     )
 }
