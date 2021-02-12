@@ -2,10 +2,10 @@ import React from "react";
 import {SetInputValue} from "./SetInputValue";
 
 type ScoreboardProps = {
-    value: string
-    maxValue: string
-    updateValue: (value: string) => void
-    updateMaxValue: (value: string) => void
+    value: number
+    maxValue: number
+    updateValue: (value: number) => void
+    updateMaxValue: (value: number) => void
 }
 
 export function SetTimerScoreboard(props: ScoreboardProps) {

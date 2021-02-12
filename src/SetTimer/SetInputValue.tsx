@@ -1,15 +1,17 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent} from "react";
 
 type InputValuePropsType = {
     title: string
-    value: string
-    update: (value: string) => void
+    value: number
+    update: (value: number) => void
 }
 
 export function SetInputValue(props: InputValuePropsType){
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        props.update(e.currentTarget.value)
+        let number = Number(e.currentTarget.value)
+
+        props.update(number)
     }
 
     return(

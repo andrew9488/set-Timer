@@ -2,11 +2,13 @@ import React from "react";
 
 type TimerScoreboardProps = {
     count: number
+    value: number
+    maxValue: number
 }
 
 export function TimerScoreboard(props: TimerScoreboardProps) {
 
-    const countClass = props.count === 5 ? "red" : ""
+    const countClass = props.count === props.maxValue ? "red" : ""
 
     return (
         <div className="scoreboard">

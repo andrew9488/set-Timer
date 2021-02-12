@@ -3,7 +3,7 @@ import React from "react";
 type ButtonProps = {
     title: string
     install: ()=> void
-    value?: string
+    value?: number
 }
 
 export function SetTimerButton(props: ButtonProps) {

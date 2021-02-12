@@ -5,6 +5,8 @@ type ButtonsType = {
     increase: () => void
     reset: () => void
     count: number
+    maxValue: number
+    value: number
 }
 
 export function TimerButtons(props: ButtonsType) {
@@ -15,13 +17,15 @@ export function TimerButtons(props: ButtonsType) {
     return (
         <div className="buttons">
             <TimerButton title="inc"
-                    onClick={increase}
-                    disabled={5}
-                    count={props.count}/>
+                         onClick={increase}
+                         disabled={props.maxValue}
+                         count={props.count}
+            />
             <TimerButton title="reset"
-                    onClick={reset}
-                    disabled={0}
-                    count={props.count}/>
+                         onClick={reset}
+                         disabled={props.value}
+                         count={props.count}
+            />
         </div>
     )
 }

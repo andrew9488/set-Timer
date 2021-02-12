@@ -7,15 +7,23 @@ type TimerPropsType = {
     count: number
     increase: () => void
     reset: () => void
+    value: number
+    maxValue: number
 }
 
 export function Timer(props: TimerPropsType) {
     return (
         <div className="timerValue">
-            <TimerScoreboard count={props.count}/>
+            <TimerScoreboard
+                count={props.count}
+                value={props.value}
+                maxValue={props.maxValue}
+            />
             <TimerButtons increase={props.increase}
-                     reset={props.reset}
-                     count={props.count}/>
+                          reset={props.reset}
+                          count={props.count}
+                          maxValue={props.maxValue}
+                          value={props.value}/>
         </div>
     )
 }

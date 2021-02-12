@@ -4,11 +4,11 @@ import React from "react";
 import './SetTimer.css';
 
 type SetTimerPropsType = {
-    value: string
-    maxValue: string
+    value: number
+    maxValue: number
     install: () => void
-    updateValue: (value: string) => void
-    updateMaxValue: (value: string) => void
+    updateValue: (value: number) => void
+    updateMaxValue: (value: number) => void
 
 }
 

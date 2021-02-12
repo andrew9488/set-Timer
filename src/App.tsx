@@ -6,8 +6,13 @@ import {Timer} from "./Timer/Timer";
 
 function App() {
 
-    let [value, setValue] = useState<string>("0")//set-timer
-    let [maxValue, maxSetValue] = useState<string>("0")//set-timer
+    let [value, setValue] = useState<number>(0)//set-timer
+    let [maxValue, maxSetValue] = useState<number>(0)//set-timer
+
+    const Install = () => {//set-timer
+        localStorage.setItem("Value", JSON.stringify(value));
+        localStorage.setItem("MaxValue", JSON.stringify(maxValue));
+    }
 
     useEffect(() => {//set-timer
         let valueString = localStorage.getItem("Value")
@@ -25,26 +30,33 @@ function App() {
         }
     }, [])
 
-    const Install = () => {//set-timer
-        localStorage.setItem("Value", JSON.stringify(value));
-        localStorage.setItem("MaxValue", JSON.stringify(maxValue));
+
+    const UpdateValue = (value:number) => {
+        setValue(value)
+    }
+    const UpdateMaxValue = (maxValue: number) => {
+        maxSetValue(maxValue)
     }
 
-    const UpdateValue = (value:string)=> {
-    const newValue = value
-        setValue(newValue)
-    }
-    const UpdateMaxValue = (maxValue:string)=> {
-    const newMaxValue = maxValue
-        maxSetValue(newMaxValue)
-    }
+    let [count, setCount] = useState<number>(value)//timer
 
-    let [count, setCount] = useState<number>(0)//timer
+    useEffect(() => {//timer
+        let countString = localStorage.getItem("Count")
+        if (countString) {
+            let countNumber = JSON.parse(countString)
+            setCount(countNumber)
+        }
+    }, [])
+
+    useEffect( ()=> {
+        localStorage.setItem("Count", JSON.stringify(value));
+    }, [value])
+
     function increase() {//timer
         setCount(count + 1);
     }//timer
     function reset() {
-        setCount(0);
+        setCount(value);
     }//timer
 
     return (
@@ -58,9 +70,12 @@ function App() {
                 />
             </div>
             <div className="timer">
-                <Timer count={count}
-                       increase={increase}
-                       reset={reset}
+                <Timer
+                    count={count}
+                    increase={increase}
+                    reset={reset}
+                    value={value}
+                    maxValue={maxValue}
                 />
             </div>
         </div>
