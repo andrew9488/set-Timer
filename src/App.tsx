@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import {SetTimer} from './SetTimer/SetTimer';
 import {Timer} from "./Timer/Timer";
-
+import {SetTimer} from "./Timer/SetTimer";
 
 function App() {
 
@@ -30,13 +29,15 @@ function App() {
         }
     }, [])
 
-
-    const UpdateValue = (value:number) => {
+    const UpdateValue = (value: number) => {//set-timer
         setValue(value)
     }
-    const UpdateMaxValue = (maxValue: number) => {
+    const UpdateMaxValue = (maxValue: number) => {//set-timer
         maxSetValue(maxValue)
     }
+
+    let [editMode, setEditMode] = useState<boolean>(false)
+    let [error, setError] = useState<boolean>(false)
 
     let [count, setCount] = useState<number>(value)//timer
 
@@ -48,28 +49,29 @@ function App() {
         }
     }, [])
 
-    useEffect( ()=> {
+    useEffect(() => {//timer
         localStorage.setItem("Count", JSON.stringify(value));
     }, [value])
 
     function increase() {//timer
         setCount(count + 1);
     }//timer
-    function reset() {
+    function reset() {//timer
         setCount(value);
     }//timer
 
-
-
     return (
         <div className="App">
-            <h3>set-timer</h3>
             <div className="setTimer">
                 <SetTimer value={value}
                           maxValue={maxValue}
                           install={Install}
                           updateValue={UpdateValue}
                           updateMaxValue={UpdateMaxValue}
+                          setEditMode={setEditMode}
+                          setCount={setCount}
+                          error={error}
+                          setError={setError}
                 />
             </div>
             <div className="timer">
@@ -79,6 +81,9 @@ function App() {
                     reset={reset}
                     value={value}
                     maxValue={maxValue}
+                    editMode={editMode}
+                    setEditMode={setEditMode}
+                    error={error}
                 />
             </div>
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import {TimerButton} from "./TimerButton";
+import {Button} from "./Button";
 
 type ButtonsType = {
     increase: () => void
@@ -7,6 +7,7 @@ type ButtonsType = {
     count: number
     maxValue: number
     value: number
+    editMode: boolean
 }
 
 export function TimerButtons(props: ButtonsType) {
@@ -16,15 +17,17 @@ export function TimerButtons(props: ButtonsType) {
 
     return (
         <div className="buttons">
-            <TimerButton title="inc"
-                         onClick={increase}
-                         disabled={props.maxValue}
-                         count={props.count}
+            <Button title="inc"
+                    onClick={increase}
+                    maxDisabledValue={props.maxValue}
+                    minDisabledValue={props.count}
+                    editMode={props.editMode}
             />
-            <TimerButton title="reset"
-                         onClick={reset}
-                         disabled={props.value}
-                         count={props.count}
+            <Button title="reset"
+                    onClick={reset}
+                    maxDisabledValue={props.value}
+                    minDisabledValue={props.count}
+                    editMode={props.editMode}
             />
         </div>
     )

@@ -17,6 +17,12 @@
     margin: 30px;
 }
 
+.timerValue .scoreboard .editMode{
+    border: 2px solid orange;
+    margin: 63px;
+    font-size: 40px;
+}
+
 .timerValue .scoreboard .red {
     color: darkred;
 }
@@ -38,6 +44,4 @@
     height: 50px;
     text-align: center;
     padding: 5px;
-    border: 1px solid orange;
-    outline: orange;
 }
