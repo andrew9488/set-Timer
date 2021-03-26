@@ -1,4 +1,6 @@
 import React from "react";
+import style from "./TimerScoreboard.module.css"
+import styleContainer from "../common/style/Container.module.css"
 
 type TimerScoreboardProps = {
     count: number
@@ -11,16 +13,17 @@ type TimerScoreboardProps = {
 
 export function TimerScoreboard(props: TimerScoreboardProps) {
 
-    const countClass = props.count === props.maxValue ? "red" : ""
+
+    const countClass = props.count === props.maxValue ? style.disable : ""
 
     return (
-        <div className="scoreboard">
+        <div className={`${styleContainer.scoreboard} ${style.timerScoreboard}`}>
             {
                 props.error
-                    ? <h3 className="editMode">error</h3>
+                    ? <span>error</span>
                     : props.editMode
-                    ? <h3 className="editMode">settings</h3>
-                    : <h3 className={countClass}>{props.count}</h3>
+                    ? <span>settings</span>
+                    : <span className={countClass}>{props.count}</span>
             }
         </div>
     );

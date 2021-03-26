@@ -1,4 +1,5 @@
 import React, {ChangeEvent} from "react";
+import style from "./SetInputValue.module.css"
 
 type InputValuePropsType = {
     title: string
@@ -17,12 +18,12 @@ export function SetInputValue(props: InputValuePropsType) {
     }
 
     return (
-        <div>
+        <span className={style.inputStyle}>
             {props.title} <input className={props.className}
                                  type="number"
                                  value={props.value}
                                  onChange={onChangeHandler}
         />
-        </div>
+        </span>
     )
 }

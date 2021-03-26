@@ -1,0 +1,23 @@
+.container {
+    border: 1px solid #242222;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    width: 225px;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #242222;
+}
+
+.scoreboard {
+    background-color: #a9a9a9;
+    width: 80%;
+    height: 40%;
+    border: 1px solid #a9a9a9;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,7 +1,8 @@
 import {TimerScoreboard} from "./TimerScoreboard";
 import {TimerButtons} from "./TimerButtons";
 import React from "react";
-import './Timer.css';
+import styleContainer from "../common/style/Container.module.css"
+
 
 type TimerPropsType = {
     count: number
@@ -16,7 +17,7 @@ type TimerPropsType = {
 
 export function Timer(props: TimerPropsType) {
     return (
-        <div className="timerValue">
+        <div className={styleContainer.container}>
             <TimerScoreboard
                 count={props.count}
                 value={props.value}

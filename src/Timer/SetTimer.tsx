@@ -1,7 +1,7 @@
 import {SetTimerScoreboard} from "./SetTimerScoreboard";
 import React from "react";
-import './SetTimer.css';
 import {Button} from "./Button";
+import styleContainer from "../common/style/Container.module.css"
 
 type SetTimerPropsType = {
     value: number
@@ -17,7 +17,7 @@ type SetTimerPropsType = {
 
 export function SetTimer(props: SetTimerPropsType) {
     return (
-        <div className="setTimerValue">
+        <div className={styleContainer.container}>
             <SetTimerScoreboard
                 value={props.value}
                 maxValue={props.maxValue}

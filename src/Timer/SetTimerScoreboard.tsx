@@ -1,6 +1,7 @@
 import React from "react";
 import {SetInputValue} from "./SetInputValue";
-import s from "./Input.module.css"
+import style from "./SetTimerScoreboard.module.css"
+import styleContainer from "../common/style/Container.module.css"
 
 type ScoreboardProps = {
     value: number
@@ -14,19 +15,19 @@ type ScoreboardProps = {
 
 export function SetTimerScoreboard(props: ScoreboardProps) {
 
-    const inputClassName = `${(props.maxValue <= props.value || props.value < 0 || props.maxValue<0) ? s.inputError : s.inputDefault}`
+    const inputClassName = `${(props.maxValue <= props.value || props.value < 0 || props.maxValue < 0) ? style.inputError : ""}`
 
     return (
-        <div className="scoreboard">
+        <div className={`${styleContainer.scoreboard} ${style.setTimerScoreboardContainer}`}>
             {props.value >= props.maxValue || props.value < 0 || props.maxValue < 0 ? props.setError(true) : props.setError(false)}
 
-            <SetInputValue title=" maximum value: "
+            <SetInputValue title="max value: "
                            value={props.maxValue}
                            update={props.updateMaxValue}
                            setEditMode={props.setEditMode}
                            className={inputClassName}
             />
-            <SetInputValue title=" starting value: "
+            <SetInputValue title="min value: "
                            value={props.value}
                            update={props.updateValue}
                            setEditMode={props.setEditMode}

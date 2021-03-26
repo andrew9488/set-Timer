@@ -1,0 +1,6 @@
+.inputStyle input {
+    width: 50px;
+    outline: none;
+    border-radius: 3px;
+    background-color: #d7d7d7;
+}

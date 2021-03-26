@@ -1,5 +1,6 @@
 import React from "react";
 import {Button} from "./Button";
+import style from "./TimerButtons.module.css"
 
 type ButtonsType = {
     increase: () => void
@@ -16,7 +17,7 @@ export function TimerButtons(props: ButtonsType) {
     const reset = () => props.reset()
 
     return (
-        <div className="buttons">
+        <div className={style.buttons}>
             <Button title="inc"
                     onClick={increase}
                     maxDisabledValue={props.maxValue}

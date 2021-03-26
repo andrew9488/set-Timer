@@ -1,4 +1,5 @@
 import React from "react";
+import style from "./Button.module.css"
 
 type TimerButtonProps = {
     onClick: () => void
@@ -23,7 +24,7 @@ export function Button(props: TimerButtonProps) {
 
     return (
         <div>
-            <div className="button">
+            <div className={style.button}>
                 <button onClick={onClick}
                         disabled={(props.editMode || props.error ||
                             props.maxDisabledValue === props.minDisabledValue)}
